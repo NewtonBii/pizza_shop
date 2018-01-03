@@ -8,8 +8,12 @@
       <li><a href="#">MENU</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Place your Order</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% if current_user.is_authenticated %}
+      <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> VIEW CART</a></li>
+      <li><a href="{{url_for('auth.logout')}}"><span class="glyphicon glyphicon-log-out"></span> SIGN OUT</a></li>
+      {% else %}
+      <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> SIGN IN</a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>
