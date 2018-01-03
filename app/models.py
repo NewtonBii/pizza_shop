@@ -61,6 +61,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     price = db.Column(db.Integer)
+    pizza_id= db.Column(db.Integer, db.ForeignKey("pizza.id"))
 
 
 
